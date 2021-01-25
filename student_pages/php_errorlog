@@ -1,0 +1,18 @@
+[11-Mar-2020 11:22:02 CST6CDT] PHP Parse error:  syntax error, unexpected '"' in /home/mobileed/public_html/Exam/student_pages/getsubj.php on line 10
+[11-Mar-2020 11:22:05 CST6CDT] PHP Parse error:  syntax error, unexpected '"' in /home/mobileed/public_html/Exam/student_pages/getsubj.php on line 10
+[17-Mar-2020 06:55:42 CST6CDT] PHP Parse error:  syntax error, unexpected '"', expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/mobileed/public_html/Exam/student_pages/add_fb_for_teacher.php on line 413
+[17-Mar-2020 09:33:00 CST6CDT] PHP Parse error:  syntax error, unexpected ''];' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home/mobileed/public_html/Exam/student_pages/section_wise_fb.php on line 35
+[03-Apr-2020 03:44:11 CST6CDT] PHP Parse error:  syntax error, unexpected 'options' (T_STRING) in /home/mobileed/public_html/Exam/student_pages/view_response.php on line 307
+[03-Apr-2020 03:44:42 CST6CDT] PHP Parse error:  syntax error, unexpected 'options' (T_STRING) in /home/mobileed/public_html/Exam/student_pages/view_response.php on line 307
+[03-Apr-2020 03:45:18 CST6CDT] PHP Parse error:  syntax error, unexpected 'options' (T_STRING) in /home/mobileed/public_html/Exam/student_pages/view_response.php on line 307
+[03-Apr-2020 03:48:41 CST6CDT] PHP Parse error:  syntax error, unexpected 'options' (T_STRING) in /home/mobileed/public_html/Exam/student_pages/view_response.php on line 307
+[03-Apr-2020 03:49:18 CST6CDT] PHP Parse error:  syntax error, unexpected 'options' (T_STRING) in /home/mobileed/public_html/Exam/student_pages/view_response.php on line 307
+[03-Apr-2020 03:50:48 CST6CDT] PHP Parse error:  syntax error, unexpected 'options' (T_STRING) in /home/mobileed/public_html/Exam/student_pages/view_response.php on line 307
+[03-Apr-2020 03:53:12 CST6CDT] PHP Parse error:  syntax error, unexpected 'options' (T_STRING) in /home/mobileed/public_html/Exam/student_pages/view_response.php on line 307
+[03-Apr-2020 03:56:40 CST6CDT] PHP Parse error:  syntax error, unexpected 'options' (T_STRING) in /home/mobileed/public_html/Exam/student_pages/view_response.php on line 307
+[03-Apr-2020 03:57:26 CST6CDT] PHP Parse error:  syntax error, unexpected 'options' (T_STRING) in /home/mobileed/public_html/Exam/student_pages/view_response.php on line 307
+[06-Apr-2020 04:16:15 CST6CDT] PHP Parse error:  syntax error, unexpected '$arr' (T_VARIABLE) in /home/mobileed/public_html/Exam/student_pages/submit.php on line 21
+[06-Apr-2020 10:48:03 CST6CDT] PHP Parse error:  syntax error, unexpected '$arr' (T_VARIABLE) in /home/mobileed/public_html/Exam/student_pages/submit.php on line 21
+[07-Apr-2020 00:28:00 CST6CDT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/mobileed/public_html/Exam/student_pages/module_page.php on line 6
+[10-Apr-2020 06:55:22 CST6CDT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home/mobileed/public_html/Exam/student_pages/taketest.php on line 547
+[10-Apr-2020 11:02:58 CST6CDT] PHP Parse error:  syntax error, unexpected '';' (T_CONSTANT_ENCAPSED_STRING) in /home/mobileed/public_html/Exam/student_pages/taketest.php on line 517

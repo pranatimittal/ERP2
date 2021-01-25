@@ -1,0 +1,8 @@
+session var fac
+
+$_SESSION["xy"]=$e;
+$_SESSION["yz"]=$p;
+
+$_SESSION['Emailf'] = $e;
+$_SESSION['idf']= $i;
+ $_SESSION['namef']=$n;
