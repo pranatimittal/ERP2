@@ -1,6 +1,7 @@
 <?php
 include('config.php');
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <style>
      
 body {
@@ -52,86 +54,77 @@ font-size:25px;
 .navbar a:hover, .dropdown:hover .dropbtn {
   background-color: #4CAF50;
 }
-* {
-            box-sizing: border-box;
-          }
-
-          input[type=text], input[type=textarea] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: vertical;
-          }
-
-          
-          .custom-file-upload {
-           
-            padding: 10px;
-            cursor: pointer;
-            width: 100%
-            border-radius: 4px;
-            resize: vertical;
-        }
-
-          label {
-            padding: 7px 12px 12px 0;
-            display: inline-block;
-            font-size: 16px;
-          }
-
-          input[type=submit]  {
-
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-left:45%;
-          }
-
-          input[type=submit]:hover {
-            background-color: #45a049;
-          }
-
-          .form_u {
-            border-radius: 10px;
-            background-color: #f2f2f2;
-            padding: 40px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 34em;
-
-          }
-
-          .col-25 {
-          float: left;
-          width: 25%;
-          margin-top: 6px;
-        }
-
-        .col-75 {
-          float: left;
-          width: 75%;
-          margin-top: 6px;
-        }
-
-        /* Clear floats after the columns */
-        .row:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
-
-        .text{
-          text-align: center; 
-          color: #62665C;
-          padding: 20px;
-        }
-        .content {
+.content {
   flex: 1 0 auto;
 }  
+* {
+  box-sizing: border-box;
+}
+.container {
+  width:90%;
+  padding: 16px;
+  font-size:20px;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius:12px;
+}
+/* Full-width input fields */
+input[type=text],input[type=file],textarea,select,input[type=date]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #F1F1F1
+;
+  border-radius:12px;
+}
+input[type=text]:focus , textarea:focus,select:focus,input[type=date]:focus{
+  background-color: #ddd;
+  outline: none;
+}
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #F1F1F1;
+  margin-bottom: 25px;
+}
+label{
+    margin-left:1%;
+}
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50
+;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius:50px;
+}
+.registerbtn:hover {
+  opacity: 1;
+  background-color: #333333
+;
+}
+.context{
+  width:50%;
+  margin-left:auto;
+  margin-right:auto;
+  background-color:#ddd;
+  border-radius:12px;
+}
+
+.navbar .icon {
+  display: none;
+}
+
+
 @media (max-width: 576px) {
   
   .header{
@@ -144,33 +137,60 @@ font-size:25px;
     width:100px;
     height:80px;
   }
-  .navbar a {
-   float: left;
-   font-size: 12px;
-   color: white;
-   text-align: center;
-   padding: 8px 10px;
-   text-decoration: none;
- }
- .text{
-     font-size: 12px;
-   }
-   .form_u {
-            border-radius: 10px;
-            background-color: #f2f2f2;
-            padding: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
 
-          }
-          label{
-            font-size:15px;
-          }
+.navbar a:not(:first-child) {display: none;}
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+  .navbar.responsive {position: relative;}
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .navbar a:hover{
+  background-color: #ddd;
+  color: black;
+}
+
+  .navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+ .context{
+   width:100%;
  }
-  </style>
-  <link rel = "icon" type = "image/png" href = "IGDTUW-Logo.png">
-    <title>Faculty Upload Documents</title>
+ .container {
+ margin-left:auto;
+ margin-right:auto;
+ font-size:10px;
+ width:90%;
+ 
+}
+
+::placeholder{
+    font-size:10px;
+}
+select{
+    font-size:10px;
+}
+.registerbtn {
+    font-size:10px;
+    width:90%;
+    margin-left:5%;
+}
+ }
+ 
+        </style>
+        <link rel = "icon" type = "image/png" href = "IGDTUW-Logo.png">
+    <title>Faculty Upload Assignment</title>
 </head>
 <body>
 <a name="top"></a>
@@ -182,82 +202,153 @@ font-size:25px;
   </div> 
   
   
-  <div class="navbar">
-    <a href="fac_module.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
-    <a href="fac_assignments_page.php"><i class="fa fa-user  fa-home"></i> Home</a><a href="fac_upload_assignment.php"><i class="fa fa-upload" aria-hidden="true"></i> Upload Assignments </a> 
-    <a href="fac_manage_assignment.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Uploaded Assignments</a>
-  </div>
+<div class="navbar" id="myTopnav">
+    <a class="active" href="fac_module.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
+    <a href="fac_teaching_home.php"><i class="fa fa-user  fa-home"></i> Home</a>      
+    <a href="fac_upload_assignment.php"><i class="fa fa-upload" aria-hidden="true"></i> Upload </a> 
+    <a href="view_uploaded_ass_by_fac.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Uploads</a>
+    <a href="fac_download_ass.php"><i class="fa fa-download" aria-hidden="true"></i> Download Student Assignments </a> 
+    <a href="fac_home.php"><i class="fa fa-files-o" aria-hidden="true"></i> Test module</a>
 
-  <div class="text"><h2> Upload Assignments <i class="fa fa-upload fa-1x"></i> </h2></div>
+<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+      </div>
+      <script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "navbar") {
+    x.className += " responsive";
+  } else {
+    x.className = "navbar";
+  }
+}
+</script>  <br>
+<div class="context">
+<br>
+  <form method="post" enctype="multipart/form-data">
+  <div class="container">
+    <h2 style="text-align:center;">Upload Documents</h2>
+    <hr>
+    <label for="prog"><b>Programme</b></label>
     
+    <select id="prog" name="progname" required>
+      <option value="">Select</option>
+      <?php
+    $id=$_SESSION["idf"];
 
-    <div class = "form_u" >
+  $q1=mysqli_query($con,"SELECT Distinct program FROM coursedetails WHERE tid='$id'" )or die('Error231');
 
-<form name="form" method="POST" enctype="multipart/form-data">    
-
-    <div class="row">
-    <div class="col-25">
-    <label> Name of the document </label>
-    </div>
-    <div class="col-75">
-    <input type="text" name="name">
-    </div>
-    </div>
-
-
-<div class="row">
-    <div class="col-25">
-    <label> Subject Name </label>
-    </div>
-    <div class="col-75">
-    <input type="text" name="sub_name">
-    </div>
-    </div>
+	 while($row1=mysqli_fetch_array($q1))
+	  {
+    $n=$row1["program"];
+  	
+    
+    echo '<option value="'.$n.'">'.$n.'</option>';
+    
   
+	  }
+  ?>
+    </select>
   
-    <div class="row">
-    <div class="col-25">
-    <label>Upload</label>
-    </div>
-    <div class="col-75">
 
-    <label class="custom-file-upload">
-    <input type="File" name="file">
-    </label>
+	<label for="branch"><b>Branch</b></label>
+  <select id="branch" name="branchname" required>
+    <option value="">Select</option>
+    <?php
+    $id=$_SESSION["idf"];
 
-    </div>
-    </div>
+  $q1=mysqli_query($con,"SELECT Distinct branch FROM coursedetails WHERE tid='$id'" )or die('Error231');
 
-    <div class="row">
-    <div class="col-25">
-    <label>Message</label>
-    </div>
-    <div class="col-75">
-    <input type="textarea" name="msg" placeholder="Write a message.">
-    </div>
-    </div>
-    <br>
-    <div class="row">
-    <input name="sub" type="submit" value="Submit">
-    </div>
+	 while($row1=mysqli_fetch_array($q1))
+	  {
+    $n=$row1["branch"];
+  	
+    
+    echo '<option value="'.$n.'">'.$n.'</option>';
+    
+  
+	  }
+  ?>
+    
+  </select>
 
-    </div>
+	<label for="sem"><b>Semester</b></label>
+  <select id="sem" name="semname" required>
+    <option value="">Select</option>
+    <?php
+    $id=$_SESSION["idf"];
+
+  $q1=mysqli_query($con,"SELECT Distinct semester FROM coursedetails WHERE tid='$id' ORDER BY semester ASC" )or die('Error231');
+
+	 while($row1=mysqli_fetch_array($q1))
+	  {
+    $n=$row1["semester"];
+  	
+    
+    echo '<option value="'.$n.'">'.$n.'</option>';
+    
+  
+	  }
+  ?>
+  </select>
+  <label for="sub"><b>Subject</b></label>
+  <select id="sem" name="subject" required>
+  <option value="">Select</option>
+  <?php
+    $id=$_SESSION["idf"];
+
+  $q1=mysqli_query($con,"SELECT Distinct subjname FROM subject WHERE tid='$id'" )or die('Error231');
+
+	 while($row1=mysqli_fetch_array($q1))
+	  {
+    $n=$row1["subjname"];
+  	
+    
+    echo '<option value="'.$n.'">'.$n.'</option>';
+    
+  
+	  }
+  ?>
+  
+  </select>
+  
+   <label for="sub"><b>Pls. specify the type of document.</b></label>
+  <select id="op" name="options" required>
+  <option value="">Select</option>
+  <option value="Assignment">Assignment</option>
+  <option value="LearningResource">Learning Resource</option>
+  </select>
+  
+    <label for="msg"><b>Message</b></label>
+  <textarea id="msg" name="msg" placeholder="Enter the message. " style="height:200px" required></textarea>
+    
+  <label for="title"><b>Title</b></label>
+    <input type="text" placeholder="Enter the title" name="title" required>
+    
+  <label for="file"><b>Upload File</b>&nbsp;&nbsp;(only .pdf files can be uploaded)</label>
+    <input type="file" name="file" required>
+ <hr>
+    <button name="sub" type="submit" class="registerbtn">SUBMIT</button>
+  </div>  
 </form>
 
-</div> 
-    
-    <?php
-include('../footer.php');
-?>
+
+
 <?php
 if(isset($_POST["sub"]))
 {
   //$timezone= date_default_timezone_get();
   $timezone= date("d-m-Y");
   $id=$_SESSION["idf"];
-  $a= $_POST["name"];
+  $a= $_POST["title"];
   $b= $_POST["msg"];
-  $c= $_POST["sub_name"];
+  $c= $_POST["subject"];
+  
+  $prog=$_POST['progname'];
+  $branch=$_POST['branchname'];
+  $sem= $_POST['semname'];
+  $op=$_POST["options"];
   
   
       $img=basename($_FILES["file"]["name"]);
@@ -268,7 +359,7 @@ if(isset($_POST["sub"]))
         //for support only image code here
       $n=explode('.',$img);
       $p=pathinfo("upload/".$img,PATHINFO_EXTENSION);
-      $q=array("pdf","doc", "docx", "ppt", "pptx",  "jpg","png","jpeg");
+      $q=array("pdf","PDF");
       
   if(in_array($p,$q))
   {
@@ -276,7 +367,7 @@ if(isset($_POST["sub"]))
         $fileName = str_replace(" ", "_", $img);
           move_uploaded_file($store,"upload/".$fileName);
           
-      $query1="INSERT INTO documents VALUES ('','$timezone', '$c','$a', '$fileName', '$b','$id')";
+      $query1="INSERT INTO documents VALUES ('','$timezone', '$c','$a', '$fileName', '$b','$id', '$prog', '$branch', '$sem','$op')";
       $row=mysqli_query($con, $query1);
       if($row > 0)
       {
@@ -292,13 +383,21 @@ if(isset($_POST["sub"]))
   } 
       else
       {
-$query="INSERT INTO documents VALUES ('', '$timezone','$c','$a', '', '$b','$id')";
-$row=mysqli_query($con, $query);
+//$query="INSERT INTO documents VALUES ('', '$timezone','$c','$a', '', '$b','$id')";
+//$row=mysqli_query($con, $query);
+       echo "<script>alert('Only PDF files can be uploaded')</script>";
+        echo "<script>window.location.href='fac_upload.php'</script>";
       }
  
 }
 ?>
+<br>
+</div>
 
-
-  </body>
+</div> 
+    
+    <?php
+include('../footer.php');
+?>
+</body>
 </html>
