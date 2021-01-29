@@ -200,14 +200,12 @@ select{
     <h1>INDIRA GANDHI DELHI TECHNICAL UNIVERSITY FOR WOMEN</h1>
     <p>(Established by Govt. of Delhi vide Act 9 of 2012)</p>
   </div> 
-  
-  
+
 <div class="navbar" id="myTopnav">
-    <a class="active" href="fac_module.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
-    <a href="fac_teaching_home.php"><i class="fa fa-user  fa-home"></i> Home</a>      
-    <a href="fac_upload_assignment.php"><i class="fa fa-upload" aria-hidden="true"></i> Upload </a> 
-    <a href="fac_manage_learning.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Uploads</a>
-    <a href="fac_home.php"><i class="fa fa-files-o" aria-hidden="true"></i> Test module</a>
+    <a href="fac_module.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
+    <a href="fac_resources.php"><i class="fa fa-user  fa-home"></i> Home</a>
+    <a href="fac_upload_learning.php"><i class="fa fa-upload" aria-hidden="true"></i> Upload Learning Resources </a> 
+    <a href="fac_manage_learning.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Uploaded Resources</a>
 
 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
