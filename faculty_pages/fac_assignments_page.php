@@ -115,11 +115,11 @@ font-size:25px;
   
   
   <div class="navbar">
-    <a href="fac_module.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
+    <a class="active" href="fac_module.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
     <a href="fac_teaching_home.php"><i class="fa fa-user  fa-home"></i> Home</a>      
-    <a href="fac_upload_assignment.php"><i class="fa fa-upload" aria-hidden="true"></i>Upload Assignments</a> 
-    <a href="fac_manage_assignment.php"><i class="fa fa-files-o" aria-hidden="true"></i>Manage Uploaded Assignments</a>
-
+    <a href="fac_upload_assignment.php"><i class="fa fa-upload" aria-hidden="true"></i> Upload Assignment </a> 
+    <a href="view_uploaded_ass_by_fac.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Uploads</a>
+    <a href="fac_download_ass.php"><i class="fa fa-download" aria-hidden="true"></i> Download Student Assignments </a> 
   </div>
 
   <div class="main">
