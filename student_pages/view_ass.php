@@ -157,11 +157,10 @@ th {
    <div class="navbar" id="myTopnav">
     <a class="active" href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
     <a href="learning_homepage.php"><i class="fa fa-user  fa-home"></i> Home</a>      
-    <a href="download_resources.php"><i class="fa fa-download" aria-hidden="true"></i> Download assignment</a> 
-    <a href="stu_upload_ass.php"><i class="fa fa-upload" aria-hidden="true"></i> Upload Assignment </a>
-        <a href="view_ass.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Assignment </a>
-    <a href="stu_home.php"><i class="fa fa-files-o" aria-hidden="true"></i> Test module</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <a href="download_resources.php"><i class="fa fa-download" aria-hidden="true"></i> Download Assignments</a> 
+    <a href="stu_upload_ass.php"><i class="fa fa-upload" aria-hidden="true"></i> Upload Assignments </a>
+        <a href="view_ass.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Your Uploaded Assignments </a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
   </a>
       </div>
