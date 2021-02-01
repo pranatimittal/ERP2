@@ -146,6 +146,9 @@ a {
 
     <label for="image"><b>Your Image</b></label><i>(Image size must be less than 2 MB)</i>
     <input type="file" name="image" id="pic" placeholder="file size must be less than 2 MB" required><br>
+	
+<label for="time table"><b>Your Timetable</b></label><i>(Image size must be less than 2 MB)</i>
+    <input type="file" name="timetable" id="tt" placeholder="file size must be less than 2 MB" required><br>
 
      <label for="secure"><b>Select your security question</b></label>
 
@@ -198,18 +201,26 @@ a {
                 $size=basename($_FILES["image"]["size"]);
                 $store=$_FILES["image"]["tmp_name"];
 
+		        $imgtt=basename($_FILES["timetable"]["name"]);
+                $typett=$_FILES["timetable"]["type"];
+                $sizett=basename($_FILES["timetable"]["size"]);
+                $storett=$_FILES["timetable"]["tmp_name"];
+
               //for support, only image code here
                 $n=explode('.',$img);
                 $p=pathinfo("profile_pic/".$img,PATHINFO_EXTENSION);
-                $q=array("jpg","png","jpeg", "JPG", "PNG", "JPEG");
+		            $ntt=explode('.',$imgtt);
+                $ptt=pathinfo("time_table/".$imgtt,PATHINFO_EXTENSION);
+		            $q=array("jpg","png","jpeg", "JPG", "PNG", "JPEG");
 
 
-				  if(array_key_exists('image', $_FILES)){
-    if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
-         if(in_array($p,$q))
+				  if(array_key_exists('image', $_FILES) && array_key_exists('timetable', $_FILES)){
+    if ($_FILES['image']['error'] === UPLOAD_ERR_OK && $_FILES['timetable']['error'] === UPLOAD_ERR_OK) {
+         if(in_array($p,$q) && in_array($ptt,$q))
                 {
 
                     move_uploaded_file($store,"profile_pic/".$img);
+		            move_uploaded_file($storett,"time_table/".$imgtt);
 
                     if($p1 == $p2)
                         {
@@ -217,8 +228,8 @@ a {
             if($a1==$a2)
                     {
 
-                    $query="INSERT into login_faculty VALUES ('','$name','$e','$m','$p1', '$sq', '$a1', '$meet_url', '$img')";
-                     $row=mysqli_query($con, $query);
+                    $query="INSERT into login_faculty VALUES ('','$name','$e','$m','$p1', '$sq', '$a1', '$meet_url', '$img','$imgtt')";
+                    $row=mysqli_query($con, $query);
                     if($row > 0)
                     {
                       echo "<script>alert('Click OK to proceed. ')</script>";
@@ -233,7 +244,7 @@ a {
                     }
 			else
 					{
-						echo "<script>alert('Security Answer doesnot matches.')</script>";
+						echo "<script>alert('Security Answer does not matches.')</script>";
 					 // echo "<script>alert('Security Answer doesn't match')</script>";
 					}
 
