@@ -137,7 +137,7 @@ font-size:25px;
     <a href="fac_module.php"><i class="fa fa-user  fa-home"></i> Home</a>
     <a href="<?php echo $meet_url ?>" target="_blank"><i class="fa fa-upload"></i> Initiate class </a>
     <a href="fac_view_attendance.php"><i class="fa fa-eye" aria-hidden="true"></i> View Attendance</a>
-    <a href="fac_discussion_forum.php"><i class="fa fa-files-o" aria-hidden="true"></i> Discussion Forum</a>
+    <a href="fac_view_timetable.php"><i class="fa fa-calendar" aria-hidden="true"></i> View Timetable</a>
     <a href="fac_resources.php"><i class="fa fa-upload" aria-hidden="true"></i> Resources Center </a>
 
   </div>
