@@ -182,7 +182,7 @@ th {
     <a href="learning_homepage.php"><i class="fa fa-user  fa-home"></i> Home</a>      
     <a href="download_resources.php"><i class="fa fa-download" aria-hidden="true"></i> Download Assignments</a> 
     <a href="stu_upload_ass.php"><i class="fa fa-upload" aria-hidden="true"></i> Upload Assignments </a>
-        <a href="view_ass.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Documents </a>
+        <a href="view_ass.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Your Uploaded Assignments </a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
   </a>
