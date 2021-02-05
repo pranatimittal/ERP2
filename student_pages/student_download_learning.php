@@ -135,11 +135,13 @@ th {
   </div> 
   
   
-  <div class="navbar">
+<div class="navbar">
     <a href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
     <a href="classroom_page.php"><i class="fa fa-user  fa-home"></i> Home</a>      
-    <a href="student_download_learning.php"><i class="fa fa-download" aria-hidden="true"></i> Download learning material</a> 
-    
+    <a href="student_video_conf.php"><i class="fa fa-download" aria-hidden="true"></i> Attend Class</a> 
+    <a href="student_attendance_page.php"><i class="fa fa-files-o" aria-hidden="true"></i>View Attendance</a>
+    <a href="student_download_learning.php"><i class="fa fa-files-o" aria-hidden="true"></i>Download Learning Material</a>
+    <a href="student_timetable.php"><i class="fa fa-files-o" aria-hidden="true"></i>Class Timetable</a>   
   </div>
 
   <div class="main">
