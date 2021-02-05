@@ -218,13 +218,15 @@ th {
   <p>(Established by Govt. of Delhi vide Act 9 of 2012)</p>
 </div>
 
-<div class="navbar" id="myTopnav">
-        <a class="active" href="classroom_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-        <a href="student_video_conf.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Attend Class</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-      </div>
+<div class="navbar">
+    <a href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
+    <a href="classroom_page.php"><i class="fa fa-user  fa-home"></i> Home</a>      
+    <a href="student_video_conf.php"><i class="fa fa-download" aria-hidden="true"></i> Attend Class</a> 
+    <a href="student_attendance_page.php"><i class="fa fa-files-o" aria-hidden="true"></i>View Attendance</a>
+    <a href="student_download_learning.php"><i class="fa fa-files-o" aria-hidden="true"></i>Download Learning Material</a>
+    <a href="student_timetable.php"><i class="fa fa-files-o" aria-hidden="true"></i>Class Timetable</a>   
+  </div>
+      
       <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -270,7 +272,7 @@ while($row = mysqli_fetch_array($result)) {
     $a3 = $ro['tname'];
     $a4 = $ro['meeting_url'];
 
-      echo '<tr><td>'.$a1.'</td><td>'.$a2.'</td><td>'.$a3.'</td><td><a href="'.$a4.' ">'.$a4.'</td></tr>';
+      echo '<tr><td>'.$a1.'</td><td>'.$a2.'</td><td>'.$a3.'</td><td><a target="_blank" href="'.$a4.' ">'.$a4.'</td></tr>';
   }
 
 }
