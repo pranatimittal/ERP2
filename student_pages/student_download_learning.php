@@ -3,6 +3,25 @@ include('config.php');
 session_start();
 ?>
 
+<?php
+
+if($_SESSION['xy']=='')
+{
+   echo "<script>window.location.href='student_login.php'</script>";
+}
+
+?>
+
+<?php
+        $E=$_SESSION['Email'];
+        $result1 = mysqli_query($con,"SELECT * FROM login_student WHERE email='$E' " ) or die('Error');
+        while($row1 = mysqli_fetch_array($result1)) {
+          $p = $row1['program'];
+          $br = $row1['branch'];
+          $s = $row1['semester'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,10 +80,10 @@ font-size:25px;
     text-align: center;
   }
   .manageuser{
-			font-family: "Times New Roman", Times, serif;
+      font-family: "Times New Roman", Times, serif;
       font-size: 20px;
       
-		}
+    }
   table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -90,7 +109,9 @@ th {
 .content {
   flex: 1 0 auto;
 }  
-
+.navbar .icon {
+  display: none;
+}
 @media (max-width: 576px) {
   
   .header{
@@ -103,22 +124,42 @@ th {
     width:100px;
     height:80px;
   }
-  .navbar a {
-   float: left;
-   font-size: 12px;
-   color: white;
-   text-align: center;
-   padding: 8px 10px;
-   text-decoration: none;
- }
+ .navbar a:not(:first-child) {display: none;}
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+  .navbar.responsive {position: relative;}
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .navbar a:hover{
+  background-color: #ddd;
+  color: black;
+}
+
+  .navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
  .main h1{
-     font-size: 20px;
+     font-size: 15px;
    }
    .manageuser{
-     font-size:12px;
+     font-size:8px;
    }
    th,td{
-    padding:5px;
+    padding:3px;
+   }
+   table{
+     width:60%;
    }
  }
         </style>
@@ -135,17 +176,31 @@ th {
   </div> 
   
   
-<div class="navbar">
+  
+  <div class="navbar" id="myTopnav">
     <a href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
     <a href="classroom_page.php"><i class="fa fa-user  fa-home"></i> Home</a>      
     <a href="student_video_conf.php"><i class="fa fa-download" aria-hidden="true"></i> Attend Class</a> 
     <a href="student_attendance_page.php"><i class="fa fa-files-o" aria-hidden="true"></i>View Attendance</a>
     <a href="student_download_learning.php"><i class="fa fa-files-o" aria-hidden="true"></i>Download Learning Material</a>
-    <a href="student_timetable.php"><i class="fa fa-files-o" aria-hidden="true"></i>Class Timetable</a>   
-  </div>
-
+    <a href="student_timetable.php"><i class="fa fa-files-o" aria-hidden="true"></i>Class Timetable</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+  </a>
+      </div>
+      <script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "navbar") {
+    x.className += " responsive";
+  } else {
+    x.className = "navbar";
+  }
+}
+</script>
+<br>
   <div class="main">
-      <h1>Download Learning Material from here</h1>
+      <h1>Download Resources</h1>
       </div>
       <br>
         <div class = "manageuser">
@@ -157,13 +212,14 @@ th {
             <th>Given by faculty</th>
             <th>Subject Name</th>
             <th>Download</th>
+            <th>Document Type</th>
             <th>Message</th>
           </tr>
           
              <?php
 
 
-  $result = mysqli_query($con,"SELECT * FROM documents") or die('Error');
+  $result = mysqli_query($con,"SELECT * FROM documents where prog='$p' and branch='$br' and sem='$s' and options='Learning Resource'") or die('Error');
 $c=0;
 
 while($row = mysqli_fetch_array($result)) {
@@ -174,6 +230,7 @@ while($row = mysqli_fetch_array($result)) {
   $a = $row['message'];
   $s_name = $row['sub_name'];
   $tid=$row['teacher_id'];
+  $op=$row['options'];
   $tn;
 
   $result1 = mysqli_query($con,"SELECT tname FROM login_faculty WHERE id='$tid' ") or die('Error2');
@@ -190,7 +247,7 @@ while($row = mysqli_fetch_array($result)) {
   <td>'.$s_name.'</td>
   <td><a href=../faculty_pages/upload/'.$qid.' download>
                     <i class="fa fa-download"></i>
-                  </a></td>
+                  </a></td><td>'.$op.'</td>
   <td>'.$a.'</td></tr>';
 }
 $c=0;
