@@ -218,7 +218,7 @@ function myFunction() {
              <?php
 
 
-  $result = mysqli_query($con,"SELECT * FROM documents where prog='$p' and branch='$br' and sem='$s'") or die('Error');
+  $result = mysqli_query($con,"SELECT * FROM documents where prog='$p' and branch='$br' and sem='$s' and options='Assignment'") or die('Error');
 $c=0;
 
 while($row = mysqli_fetch_array($result)) {
