@@ -261,7 +261,9 @@ function myFunction() {
     <th>Time(mins)</th>
     <th>Date</th>
     <th>Remove Test</th>
+    <th>Initiate Test</th>
     <th>Close Window</th>
+    <th>Stop Test</th>
     <th>View </th>
   </tr>
 
@@ -283,7 +285,9 @@ while($row = mysqli_fetch_array($result)) {
  
   echo '<tr><td>'.$c++.'</td><td>'.$sc.'</td><td>'.$sn.'</td><td>'.$tn.'</td><td>'.$tq.'</td><td>'.$tm.'</td><td>'.$tl.'</td><td>'.$dat.'</td>
   <td><a title="Delete Test" href="deltest.php?tid='.$qid.'&tname='.$tn.'"><i>Remove</i></a></td>
+  <td><a title="Initiate Test" href="viewtest.php?tid='.$qid.'&tname='.$tn.'"><i>Start</i></a></td>
   <td><a title="Close Window" href="closewin.php?tid='.$qid.'&tname='.$tn.'"><i>Close</i></a></td>
+  <td><a title="Stop Test" href="viewtest.php?tid='.$qid.'&tname='.$tn.'"><i>Stop</i></a></td>
     <td><a title="View Questions" href="viewques.php?tid='.$qid.'&tname='.$tn.'"><i>View Questions</i></a></td></tr>';
 }
 $c=0;
