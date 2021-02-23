@@ -344,7 +344,7 @@ function myFunction() {
 <input type="number" name="tq" placeholder="Enter total number of questions" min="1" required>
 <input type="number" name="c" placeholder="Enter marks for correct answer" min="1" required>
 <input type="number" name="w" placeholder="Enter marks for wrong answer"  required>
-<input type="number" id="tlimit" name="timelimit" placeholder="Enter time limit for one question(in minutes only)." min="1" required>
+<input type="number" id="tlimit" name="timelimit" placeholder="Enter time limit for one question(in seconds only)." min="1" required>
 <br>
 <textarea name="description" placeholder=" Please mention the instructions for the test." ></textarea>
 <br>
