@@ -193,7 +193,7 @@ $result1 = mysqli_query($con,"SELECT id FROM login_faculty WHERE email='$E' " ) 
 <tr>
   <th>Monday</th>
     <?php
-  $result = mysqli_query($con,"SELECT * FROM srnreddy_tt WHERE day='Monday' AND teacher_id='$teach'") or die('Error');
+  $result = mysqli_query($con,"SELECT * FROM teacher_tt WHERE day='Monday' AND teacher_id='$teach'") or die('Error');
 
   while($row = mysqli_fetch_array($result)){
     $d = $row['day'];
@@ -208,7 +208,7 @@ $result1 = mysqli_query($con,"SELECT id FROM login_faculty WHERE email='$E' " ) 
   <tr>
     <th>Tuesday</th>
   <?php
-  $result = mysqli_query($con,"SELECT * FROM srnreddy_tt WHERE day='Tuesday' AND teacher_id='$teach'") or die('Error');
+  $result = mysqli_query($con,"SELECT * FROM teacher_tt WHERE day='Tuesday' AND teacher_id='$teach'") or die('Error');
 
   while($row = mysqli_fetch_array($result)){
     $d = $row['day'];
@@ -223,7 +223,7 @@ $result1 = mysqli_query($con,"SELECT id FROM login_faculty WHERE email='$E' " ) 
   <tr>
     <th>Wednesday</th>
   <?php
-  $result = mysqli_query($con,"SELECT * FROM srnreddy_tt WHERE day='Wednesday' AND teacher_id='$teach'") or die('Error');
+  $result = mysqli_query($con,"SELECT * FROM teacher_tt WHERE day='Wednesday' AND teacher_id='$teach'") or die('Error');
 
   while($row = mysqli_fetch_array($result)){
     $d = $row['day'];
@@ -238,7 +238,7 @@ $result1 = mysqli_query($con,"SELECT id FROM login_faculty WHERE email='$E' " ) 
   <tr>
     <th>Thursday</th>
   <?php
-  $result = mysqli_query($con,"SELECT * FROM srnreddy_tt WHERE day='Thursday' AND teacher_id='$teach'") or die('Error');
+  $result = mysqli_query($con,"SELECT * FROM teacher_tt WHERE day='Thursday' AND teacher_id='$teach'") or die('Error');
 
   while($row = mysqli_fetch_array($result)){
     $d = $row['day'];
@@ -253,7 +253,7 @@ $result1 = mysqli_query($con,"SELECT id FROM login_faculty WHERE email='$E' " ) 
   <tr>
     <th>Friday</th>
   <?php
-  $result = mysqli_query($con,"SELECT * FROM srnreddy_tt WHERE day='Friday' AND teacher_id='$teach'") or die('Error');
+  $result = mysqli_query($con,"SELECT * FROM teacher_tt WHERE day='Friday' AND teacher_id='$teach'") or die('Error');
 
   while($row = mysqli_fetch_array($result)){
     $d = $row['day'];
