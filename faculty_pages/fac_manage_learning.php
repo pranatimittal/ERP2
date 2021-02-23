@@ -176,7 +176,7 @@ while($row = mysqli_fetch_array($result)) {
   <td><a href=upload/'.$qid.' download>
                     <i class="fa fa-download"></i>
                   </a></td>
-  <td><a title="Delete Document" href="del_doc.php?tid='.$i.'&doc='.$q.'"><i>Delete</i></a></td>';
+  <td><a title="Delete Document" href="del_doc_lr.php?tid='.$i.'&doc='.$q.'"><i>Delete</i></a></td>';
   
 }
 $c=0;
