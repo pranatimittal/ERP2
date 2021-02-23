@@ -294,6 +294,7 @@ label{
     <div class="col-75">
     <select id="class" name="class" required>
     <option value="">Select</option>
+    <option value="-">-</option>
     <option value="IOT">IOT</option>
     <option value="MAP2">MAP2</option>
 	  <option value="MAP LAB A2">MAP LAB A2</option>
