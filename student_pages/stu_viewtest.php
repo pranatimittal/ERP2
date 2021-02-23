@@ -242,7 +242,7 @@ while($row = mysqli_fetch_array($result)) {
   $eid=$row['quizid'];
   $da=$row['date'];
   //$attemp="idk";
-  echo '<tr><td>'.$c++.'</td><td>'.$sc.'</td><td>'.$sn.'</td><td>'.$tn.'</td><td>'.$da.'</td><td>'.$tq.'</td><td>'.$cor.'</td><td>'.$wro.'</td><td>'.$tm.'</td><td>'.$tl.' min </td>
+  echo '<tr><td>'.$c++.'</td><td>'.$sc.'</td><td>'.$sn.'</td><td>'.$tn.'</td><td>'.$da.'</td><td>'.$tq.'</td><td>'.$cor.'</td><td>'.$wro.'</td><td>'.$tm.'</td><td>'.$tl.' seconds </td>
   <td><a title="Take Test" href="taketest1.php?tid='.$eid.'&corr='.$cor.'&wron='.$wro.'&tq='.$tq.'&tn='.$sn.'&d='.$in.'"><i>Take Test</i></a></td></tr> ';
 }
 $c=0;
