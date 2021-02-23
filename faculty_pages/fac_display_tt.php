@@ -25,6 +25,30 @@ while($row = mysqli_fetch_array($result)) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
 
+table {
+  margin-top: 25px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+td, th {
+  border: 2px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -134,23 +158,115 @@ font-size:25px;
 
   <div class="navbar">
     <a href="fac_module.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
-    <a href="fac_module.php"><i class="fa fa-user  fa-home"></i> Home</a>
+    <a href="fac_classroom_page.php"><i class="fa fa-user  fa-home"></i> Home</a>
     <a href="<?php echo $meet_url ?>" target="_blank"><i class="fa fa-upload"></i> Initiate class </a>
     <a href="fac_view_attendance.php"><i class="fa fa-eye" aria-hidden="true"></i> View Attendance</a>
     <a href="fac_resources.php"><i class="fa fa-upload" aria-hidden="true"></i> Resources Center </a>
-    <a href="fac_display_tt.php"><i class="fa fa-upload" aria-hidden="true"></i>View Timetable</a>
+    <a href="fac_display_tt.php"><i class="fa fa-upload" aria-hidden="true"></i> View timetable</a>
     <a href="fac_edit_tt.php"><i class="fa fa-upload" aria-hidden="true"></i>Edit timetable</a>
   </div>
 
-  <div class="main">
-      <h1>CLASSROOM MODULE</h1>
-        <div class = "adminpanel">
-          <h2>Welcome to Faculty Panel</h2>
-          <p>You can view attendance, take classes, upload reources in this module</p>
-        </div>
-      </div>
+<table align="center">
+  <tr>
+    <td>    </td>
+    <th>9-10</th>
+    <th>10-11</th>
+    <th>11-12</th>
+    <th>12-1</th>
+    <th>1-2</th>
+    <th>2-3</th>
+    <th>3-4</th>
+    <th>4-5</th>
+  </tr>
 
-      </div>
+<?php
+$E=$_SESSION['Emailf'];
+$id = $_SESSION['idf'];
+
+$result1 = mysqli_query($con,"SELECT id FROM login_faculty WHERE email='$E' " ) or die('Error'); 
+
+  while($row = mysqli_fetch_array($result1)) {
+    $teach = $row['id'];
+  }
+    ?>
+
+<tr>
+  <th>Monday</th>
+    <?php
+  $result = mysqli_query($con,"SELECT * FROM teacher_tt WHERE day='Monday' AND teacher_id='$teach'") or die('Error');
+
+  while($row = mysqli_fetch_array($result)){
+    $d = $row['day'];
+    $t = $row['tim'];
+    $c = $row['class'];
+
+    echo '<td>'.$c.'</td>';
+  }
+?>
+  </tr>
+
+  <tr>
+    <th>Tuesday</th>
+  <?php
+  $result = mysqli_query($con,"SELECT * FROM teacher_tt WHERE day='Tuesday' AND teacher_id='$teach'") or die('Error');
+
+  while($row = mysqli_fetch_array($result)){
+    $d = $row['day'];
+    $t = $row['tim'];
+    $c = $row['class'];
+
+    echo '<td>'.$c.'</td>';
+  }
+?>
+  </tr>
+
+  <tr>
+    <th>Wednesday</th>
+  <?php
+  $result = mysqli_query($con,"SELECT * FROM teacher_tt WHERE day='Wednesday' AND teacher_id='$teach'") or die('Error');
+
+  while($row = mysqli_fetch_array($result)){
+    $d = $row['day'];
+    $t = $row['tim'];
+    $c = $row['class'];
+
+    echo '<td>'.$c.'</td>';
+  }
+?>
+  </tr>
+
+  <tr>
+    <th>Thursday</th>
+  <?php
+  $result = mysqli_query($con,"SELECT * FROM teacher_tt WHERE day='Thursday' AND teacher_id='$teach'") or die('Error');
+
+  while($row = mysqli_fetch_array($result)){
+    $d = $row['day'];
+    $t = $row['tim'];
+    $c = $row['class'];
+
+    echo '<td>'.$c.'</td>';
+  }
+?>
+  </tr>
+
+  <tr>
+    <th>Friday</th>
+  <?php
+  $result = mysqli_query($con,"SELECT * FROM teacher_tt WHERE day='Friday' AND teacher_id='$teach'") or die('Error');
+
+  while($row = mysqli_fetch_array($result)){
+    $d = $row['day'];
+    $t = $row['tim'];
+    $c = $row['class'];
+
+    echo '<td>'.$c.'</td>';
+  }
+?>
+  </tr>
+
+</table>
+
 
     <?php
 include('../footer.php');

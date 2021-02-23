@@ -137,7 +137,7 @@ th {
     <a href="fac_manage_learning.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Uploaded Resources</a>
   </div>
 
-  <div class="text"><h2> View materials uploaded by you</h2></div>
+  <div class="text"><h2> View learning resources uploaded by you</h2></div>
   <br>
   <div class = "manageuser">
     <table align="center">
@@ -154,7 +154,7 @@ th {
    <?php
 
 $id= $_SESSION['idf'];
-  $result = mysqli_query($con,"SELECT * FROM documents WHERE teacher_id= '$id'") or die('Error');
+  $result = mysqli_query($con,"SELECT * FROM documents WHERE teacher_id= '$id' AND options='Learning Resource'") or die('Error');
 $c=1;
 
 while($row = mysqli_fetch_array($result)) {
@@ -176,7 +176,7 @@ while($row = mysqli_fetch_array($result)) {
   <td><a href=upload/'.$qid.' download>
                     <i class="fa fa-download"></i>
                   </a></td>
-  <td><a title="Delete Document" href="del_doc.php?tid='.$i.'&doc='.$q.'"><i>Delete</i></a></td>';
+  <td><a title="Delete Document" href="del_doc_lr.php?tid='.$i.'&doc='.$q.'"><i>Delete</i></a></td>';
   
 }
 $c=0;

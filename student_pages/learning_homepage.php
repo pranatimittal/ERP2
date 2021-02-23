@@ -162,7 +162,7 @@ font-size:25px;
     <a class="active" href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
     <a href="learning_homepage.php"><i class="fa fa-user  fa-home"></i> Home</a>
     
-        <a href="view_ass.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Assignments </a>
+        <a href="download_resources.php"><i class="fa fa-eye" aria-hidden="true"></i>  Assignments </a>
     <a href="stu_home.php"><i class="fa fa-files-o" aria-hidden="true"></i> Test module</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i>
   </a>

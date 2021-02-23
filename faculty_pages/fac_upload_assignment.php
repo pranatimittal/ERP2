@@ -384,7 +384,7 @@ if(isset($_POST["sub"]))
 //$query="INSERT INTO documents VALUES ('', '$timezone','$c','$a', '', '$b','$id')";
 //$row=mysqli_query($con, $query);
        echo "<script>alert('Only PDF files can be uploaded')</script>";
-        echo "<script>window.location.href='fac_upload.php'</script>";
+        echo "<script>window.location.href='fac_upload_assignment.php'</script>";
       }
  
 }

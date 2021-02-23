@@ -180,10 +180,9 @@ th {
   <div class="navbar" id="myTopnav">
     <a class="active" href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
     <a href="learning_homepage.php"><i class="fa fa-user  fa-home"></i> Home</a>      
-    <a href="download_resources.php"><i class="fa fa-download" aria-hidden="true"></i> Download learning material</a> 
-    <a href="stu_upload_ass.php"><i class="fa fa-upload" aria-hidden="true"></i> Upload Documents </a>
-        <a href="view_ass.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Documents </a>
-    <a href="stu_home.php"><i class="fa fa-files-o" aria-hidden="true"></i> Test module</a>
+    <a href="download_resources.php"><i class="fa fa-download" aria-hidden="true"></i> Download Assignments</a> 
+    <a href="stu_upload_ass.php"><i class="fa fa-upload" aria-hidden="true"></i> Upload Assignments </a>
+        <a href="view_ass.php"><i class="fa fa-eye" aria-hidden="true"></i> Manage Your Uploaded Assignments </a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
   </a>
@@ -219,7 +218,7 @@ function myFunction() {
              <?php
 
 
-  $result = mysqli_query($con,"SELECT * FROM documents where prog='$p' and branch='$br' and sem='$s'") or die('Error');
+  $result = mysqli_query($con,"SELECT * FROM documents where prog='$p' and branch='$br' and sem='$s' and options='Assignment'") or die('Error');
 $c=0;
 
 while($row = mysqli_fetch_array($result)) {

@@ -181,7 +181,7 @@ function myFunction() {
 }
 </script>
 
-  <div class="text"><h2> View materials uploaded by you</h2></div>
+  <div class="text"><h2> View assignments uploaded by you</h2></div>
   <br>
   <div class = "manageuser">
     <table align="center">
@@ -201,7 +201,7 @@ $id= $_SESSION['idf'];
 
 //echo $id;
 
-  $result = mysqli_query($con,"SELECT * FROM documents WHERE teacher_id= '$id'") or die('Error');
+  $result = mysqli_query($con,"SELECT * FROM documents WHERE teacher_id= '$id' AND options='Assignment'") or die('Error');
 $c=1;
 
 while($row = mysqli_fetch_array($result)) {
