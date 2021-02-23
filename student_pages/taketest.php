@@ -386,7 +386,7 @@ input[type=submit]:hover {
     })(); // End countdown
   }
  var spge = '<?php echo $val ;?>';
- spge*=60;
+ //spge*=60;
   setTimer(spge, {
      0: function () { display("notifier", "Time is up");       }
   });
@@ -495,13 +495,13 @@ if(isset($_POST["sub"]))
     //print($res[0]);
   if($_SESSION["index"]>=$tot)
   {
-    echo "<script>alert('Response has been recorded.')</script>";
+//     echo "<script>alert('Response has been recorded.')</script>";
 
        echo "<script>window.location.href='stu_result.php'</script>";
   }
   else
   {
-  echo "<script>alert('Response has been recorded.')</script>";
+//   echo "<script>alert('Response has been recorded.')</script>";
          echo "<script>window.location.href='taketest.php'</script>";
   }
 }
