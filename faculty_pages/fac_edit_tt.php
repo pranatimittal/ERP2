@@ -316,7 +316,7 @@ label{
 					$g=$_POST["tim"];
 					$h=$_POST["class"];
 					
-	            $query = "UPDATE srnreddy_tt SET class='$h' where day= '$f' AND tim= '$g'";
+	            $query = "UPDATE teacher_tt SET class='$h' where day= '$f' AND tim= '$g'";
 			
 				            //$query = "UPDATE login_student SET name='".$name."',rollno='".$b."',email='".$h."',mob='".$c."',branch='".$e."',program='".$d."',semester='".$f."',batch='".$g."' ,image='".$img."') where email=".$E;
 
