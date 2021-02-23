@@ -7,7 +7,38 @@ if($_SESSION['xy']=='')
 {
    echo "<script>window.location.href='student_login.php'</script>";
 }
+
 ?>
+
+<?php
+
+    if( $_SERVER['REQUEST_METHOD']=='POST' && isset(
+        $con,
+        $_POST['task'],
+        $_POST['rollno'],
+        $_POST['tid']
+    )){
+
+        ob_clean();
+
+        if( $_POST['task']=='increase' ){
+
+            function increase($con,$r,$a) {
+                $sql='UPDATE `attendance` SET `attendno`=`attendno`+1 WHERE `rollno`=? AND `tid`=?';
+
+                $stmt=$con->prepare($sql);
+                $stmt->bind_param('ss',$r,$a);
+                $res=$stmt->execute();
+                $stmt->close();
+                return $res;
+            }
+            $result=increase( $con, $_POST['rollno'],$_POST['tid'] );
+        }
+
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -220,13 +251,13 @@ th {
 
 <div class="navbar">
     <a href="module_page.php"><i class="fa fa-file-text" aria-hidden="true"></i> Module</a>
-    <a href="classroom_page.php"><i class="fa fa-user  fa-home"></i> Home</a>      
-    <a href="student_video_conf.php"><i class="fa fa-download" aria-hidden="true"></i> Attend Class</a> 
+    <a href="classroom_page.php"><i class="fa fa-user  fa-home"></i> Home</a>
+    <a href="student_video_conf.php"><i class="fa fa-download" aria-hidden="true"></i> Attend Class</a>
     <a href="student_attendance_page.php"><i class="fa fa-files-o" aria-hidden="true"></i>View Attendance</a>
     <a href="student_download_learning.php"><i class="fa fa-files-o" aria-hidden="true"></i>Download Learning Material</a>
-    <a href="student_timetable.php"><i class="fa fa-files-o" aria-hidden="true"></i>Class Timetable</a>   
+    <a href="student_timetable.php"><i class="fa fa-files-o" aria-hidden="true"></i>Class Timetable</a>
   </div>
-      
+
       <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
@@ -255,32 +286,53 @@ function myFunction() {
 
 $sId=$_SESSION['email'];
 
-
-// SELECT tid FROM course_details WHERE email='$sId'
-
-//login_faculty.tname FROM ((login_student INNER JOIN coursedetails ON login_student.branch = coursedetails.branch AND login_student.program = coursedetails.program AND login_student.semester = coursedetails.semester) INNER JOIN login_faculty ON login_faculty.id = coursedetails.tid)
-
-  $result = mysqli_query($con,"SELECT tid from coursedetails, login_student WHERE login_student.branch = coursedetails.branch AND login_student.program = coursedetails.program AND login_student.semester = coursedetails.semester AND login_student.email='$sId'") or die('Error');
-
+$result = mysqli_query($con,"SELECT tid, rollno from coursedetails, login_student WHERE login_student.branch = coursedetails.branch AND login_student.program = coursedetails.program AND login_student.semester = coursedetails.semester AND login_student.email='$sId'") or die('Error');
 while($row = mysqli_fetch_array($result)) {
   $name = $row['tid'];
+  $rollno=$row['rollno'];
 
-  $r = mysqli_query($con, "SELECT subject.subjcode, subject.subjname, login_faculty.tname, login_faculty.meeting_url from login_faculty, subject WHERE login_faculty.id = subject.tid AND login_faculty.id='$name'") or die('Error');
-  while($ro = mysqli_fetch_array($r)){
-    $a1 = $ro['subjcode'];
-    $a2 = $ro['subjname'];
-    $a3 = $ro['tname'];
-    $a4 = $ro['meeting_url'];
+  $sql='SELECT subject.subjcode, subject.subjname, login_faculty.tname, login_faculty.meeting_url
+          from login_faculty, subject
+          WHERE login_faculty.id = subject.tid AND login_faculty.id=?';
 
-      echo '<tr><td>'.$a1.'</td><td>'.$a2.'</td><td>'.$a3.'</td><td><a target="_blank" href="'.$a4.' ">'.$a4.'</td></tr>';
+  $stmt=$con->prepare( $sql );
+  $stmt->bind_param( 's', $name );
+
+  $res=$stmt->execute();
+  $stmt->bind_result( $subjcode, $subjname, $tname, $meeting_url );
+
+  while( $stmt->fetch() ){
+      printf(
+          '<tr>
+              <td>%1$s</td>
+              <td>%2$s</td>
+              <td>%3$s</td>
+              <td><button data-task="increase"  data-rollno="%4$s" data-tid="%5$s" data-url="%6$s">Join</button></td>
+          </tr>',
+          $subjcode, $subjname, $tname, $rollno, $name, $meeting_url );
   }
-
-}
-echo '</table></div>';
+ }
 
 
 ?>
 </table>
+
+<script>
+    document.querySelectorAll('td button').forEach( bttn=>{
+        bttn.addEventListener('click',e=>{
+
+            /* create an empty FormData object and add our own values */
+            let fd=new FormData();
+                fd.append('task',e.target.dataset.task);
+                fd.append('rollno',e.target.dataset.rollno);
+                fd.append('tid',e.target.dataset.tid);
+
+            /* send a POST request to the PHP endpoint that will perform the update ( same page here ) */
+            fetch( location.href, { method:'post',body:fd } );
+           window.open(e.target.dataset.url,'_blank');
+        });
+    })
+</script>
 
 </div>
 <br>
